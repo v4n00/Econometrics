@@ -119,9 +119,10 @@ $$\hat \beta_0 = \bar y - \beta_1 \cdot \bar x = 36.57 - 0.716 \cdot 52.14 = -0.
 
 Write the regression equation with the interpretation of the coefficients.
 
-$$\hat y = -0.765 + 0.716x + \hat u$$
+$$\hat y = -0.765 + 0.716x$$
 
-> When a company has no assets, the model predicts its sales to be approximately $-0.765$ million &euro;  
+> When a company has no assets, the model predicts its sales to be approximately $-0.765$ million &euro;
+>
 > For each additional million &euro; in total assets, the sales are predicted to increase by approximately $0.716$ million &euro;
 
 ## Requirement 3
@@ -279,10 +280,12 @@ $$
 
 Write the regression equation with the interpretation of the coefficients.
 
-$$\hat y = 75.502 − 92.2006 \times x_1 − 14.02562 \times x_2 + \hat u$$
+$$\hat y = 75.502 − 92.2006 \times x_1 − 14.02562 \times x_2$$
 
-> When both $x_1$ and $x_2$ are zero, the model predicts the baseline level of $y$ will be $75.502$ units.  
-> For each unit increase in $x_1$, the dependent variable $y$ is expected to decrease by $92.2$ units.  
+> When both $x_1$ and $x_2$ are zero, the model predicts the baseline level of $y$ will be $75.502$ units.
+>
+> For each unit increase in $x_1$, the dependent variable $y$ is expected to decrease by $92.2$ units.
+>
 > For each unit increase in $x_2$, the dependent variable $y$ is expected to decrease by $14.02$ units.
 
 # Exercise 5 - Multiple Linear Regression
