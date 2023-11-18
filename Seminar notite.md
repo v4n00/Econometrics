@@ -5,7 +5,7 @@
 -   [Simple Linear Regression](#simple-linear-regression)
     -   [Hypothesis testing](#hypothesis-testing)
         -   [1. Testing the significance with confidence intervals](#1-testing-the-significance-with-confidence-intervals)
-        -   [2. Testing the significance using a t-Test](#2-testing-the-significance-using-a-t-test)
+        -   [2. Testing the significance using a t-test](#2-testing-the-significance-using-a-t-test)
 -   [ANOVA](#anova)
     -   [Analytical](#analytical)
     -   [Numerical](#numerical)
@@ -87,7 +87,7 @@ $$\beta_1 \in (1.5 - 0.2 \cdot 2.776,\ 1.5 + 0.2 \cdot 2.776) \Rightarrow \beta_
 >
 > If $\beta_1$ is 0 then we can't say that our model has a statistical significance
 
-### 2. Testing the significance using a t-Test
+### 2. Testing the significance using a t-test
 
 $$
 \begin{cases}
