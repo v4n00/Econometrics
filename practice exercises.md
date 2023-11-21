@@ -83,7 +83,7 @@ Compute R-squared using the ANOVA output. Interpret the result.
 
 $$R ^2 = \dfrac{SS_{Explained}}{SS_{Total}} = \dfrac{181.1287594}{231.7142857} = 0.782 = 78.2\%$$
 
-> This means that $78.2\%$ of the variability in the dependent variable (number of errors) is explained by the independent variable (number of sleeping hours) in the model.
+> This means that $78.2$% of the variability in the dependent variable (number of errors) is explained by the independent variable (number of sleeping hours) in the model.
 
 ## Requirement 5
 
@@ -155,7 +155,7 @@ $$\sigma_u = \sqrt{\sigma_u ^ 2} = \sqrt{\dfrac{\sum u_t ^ 2}{n - 2}} = \sqrt{\d
 
 ## Requirement 5
 
-Test the statistical significance of the regression coefficient for a significance level of $5\%$ ($t_{critical} = 2.57$).
+Test the statistical significance of the regression coefficient for a significance level of $5$% ($t_{critical} = 2.57$).
 
 $$t_{calc} (\beta_1) = \dfrac{\hat \beta_1}{SE(\hat \beta_1)} = \dfrac{0.716}{0.178} = 4.02$$
 
@@ -183,7 +183,7 @@ $$SS_{Total} = \sum(y_i - \bar y)^2 = 1781.714$$
 
 $$R ^2 = \dfrac{SS_{Explained}}{SS_{Total}} = \dfrac{1362.224}{1781.714} = 0.7645 = 76.45\%$$
 
-> This means that $76.5\%$ of the variability in the dependent variable (sales) is explained by the independent variable (total assets) in the linear regression model.
+> This means that $76.5$% of the variability in the dependent variable (sales) is explained by the independent variable (total assets) in the linear regression model.
 
 # Exercise 3 - Multiple Linear Regression
 
@@ -204,13 +204,13 @@ $$\text{Crime rate} = −28.0595 + 1.927223 \times \ln{(\text{Social protection 
 
 ## Requirement 2
 
-Which variable(s) is/are statistically significant at $1\%$ significance level. List their names.
+Which variable(s) is/are statistically significant at $1$% significance level. List their names.
 
 Only the first variable, $\ln{(\text{Social protection expenditures})}$ is **statistically significant**, because $0.005 < 0.01 \Leftrightarrow p_{calculated} < \alpha$
 
 ## Requirement 3
 
-Which variable(s) is/are statistically significant at $5\%$ significance level?
+Which variable(s) is/are statistically significant at $5$% significance level?
 
 The first 2 variables, $\ln{(\text{Social protection expenditures})}$ and $\text{Monthly income}$ are **statistically significant**, because $0.005 < 0.05 \Leftrightarrow p_{calculated} < \alpha$ and $0.021 < 0.05 \Leftrightarrow p_{calculated} < \alpha$
 
@@ -227,7 +227,7 @@ $$
 
 ## Requirement 5
 
-Test the hypothesis stated above at the $5\%$ significance level.
+Test the hypothesis stated above at the $5$% significance level.
 
 $$t_{calculated} = \dfrac{\hat \beta_2}{SE(\hat \beta_2)} = \dfrac{0.006}{0.0025} = 2.4$$
 
@@ -396,7 +396,7 @@ $$MS_{Explained} = \dfrac{SS_{Explained}}{df_{Explained}} = \dfrac{302.1}{2} = 1
 
 $$R^2 = \dfrac{SS_{Explained}}{SS_{Total}} = \dfrac{302.1}{510} = 0.5923 = 59.23\%$$
 
-> This means that $59.23\%$ of the variability in the dependent variable is explained by the 2 independent variables in the model.
+> This means that $59.23$% of the variability in the dependent variable is explained by the 2 independent variables in the model.
 
 ## Requirement 2
 
@@ -424,12 +424,12 @@ The results after estimating a multiple linear regression model for unemployment
 | Residual               | ?   | ?   | ?   |     |
 | Total                  | ?   | ?   |     |     |
 
-|                                                       | Coefficients | Standard Error | t Stat | Lower $95\%$ | Upper $95\%$ |
-| ----------------------------------------------------- | ------------ | -------------- | ------ | ------------ | ------------ |
-| Intercept                                             | 43.98        | 9.09           | ?      | 24.61        | 63.35        |
-| Average Income (hundreds Euro)                        | ?            | 3.13           | ?      | -18.18       | -4.83        |
-| Number of insolvent companies (hundreds of companies) | ?            | ?              | 1.95   | -0.05        | 1.18         |
-| Share of persons with tertiary education(%)           | ?            | 0.09           | ?      | -0.40        | ?            |
+|                                                       | Coefficients | Standard Error | t Stat | Lower $95$% | Upper $95$% |
+| ----------------------------------------------------- | ------------ | -------------- | ------ | ----------- | ----------- |
+| Intercept                                             | 43.98        | 9.09           | ?      | 24.61       | 63.35       |
+| Average Income (hundreds Euro)                        | ?            | 3.13           | ?      | -18.18      | -4.83       |
+| Number of insolvent companies (hundreds of companies) | ?            | ?              | 1.95   | -0.05       | 1.18        |
+| Share of persons with tertiary education(%)           | ?            | 0.09           | ?      | -0.40       | ?           |
 
 $F_{critic} = 3.287;\ t_{critic} = 2.131$
 
@@ -511,12 +511,12 @@ $$SE(\hat \beta_2) = \dfrac{0.56}{1.95} = 0.28$$
 | Residual               | 15  | 143.85 | 9.59  |      |
 | Total                  | 18  | 399.58 |       |      |
 
-|                                                       | Coefficients | Standard Error | t Stat | Lower $95\%$ | Upper $95\%$ |
-| ----------------------------------------------------- | ------------ | -------------- | ------ | ------------ | ------------ |
-| Intercept                                             | 43.98        | 9.09           | 4.83   | 24.61        | 63.35        |
-| Average Income (hundreds Euro)                        | -11.5        | -3.67          | -5.8   | -18.18       | -4.83        |
-| Number of insolvent companies (hundreds of companies) | 0.56         | 0.28           | 1.95   | -0.05        | 1.18         |
-| Share of persons with tertiary education(%)           | -0.20        | 0.09           | -2.22  | -0.40        | -0.008       |
+|                                                       | Coefficients | Standard Error | t Stat | Lower $95$% | Upper $95$% |
+| ----------------------------------------------------- | ------------ | -------------- | ------ | ----------- | ----------- |
+| Intercept                                             | 43.98        | 9.09           | 4.83   | 24.61       | 63.35       |
+| Average Income (hundreds Euro)                        | -11.5        | -3.67          | -5.8   | -18.18      | -4.83       |
+| Number of insolvent companies (hundreds of companies) | 0.56         | 0.28           | 1.95   | -0.05       | 1.18        |
+| Share of persons with tertiary education(%)           | -0.20        | 0.09           | -2.22  | -0.40       | -0.008      |
 
 ## Requirement 2
 
