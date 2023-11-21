@@ -10,7 +10,7 @@ $$u_t = y_t - \hat y_t$$
 
 # Estimators
 
-$$\hat \beta_0 = \bar y - \beta_1 \cdot \bar x$$
+$$\hat \beta_0 = \bar y - \hat \beta_1 \cdot \bar x$$
 
 $$\hat \beta_1 = \dfrac{\sum (x_t - \bar x) \cdot (y_t - \bar y)}{\sum (x_t - \bar x)^2} \\ \text{or} \\ \hat \beta_1 = \dfrac{n \cdot \sum (x_t y_t) - \sum (x) \cdot \sum (y)}{n \cdot \sum(x ^2) - \sum (x)^2}$$
 
