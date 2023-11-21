@@ -29,6 +29,14 @@
     -   [Requirement 2](#requirement-2-4)
 -   [Exercise 6 - True or False?](#exercise-6---true-or-false)
 -   [Exercise 7 - Classical Linear Model](#exercise-7---classical-linear-model)
+-   [Exercise 8 - ANOVA MLR](#exercise-8---anova-mlr)
+    -   [Requirement 1](#requirement-1-5)
+    -   [Requirement 2](#requirement-2-5)
+-   [Exercise 9 - Excel Output](#exercise-9---excel-output)
+    -   [Requirement 1](#requirement-1-6)
+    -   [Requirement 2](#requirement-2-6)
+    -   [Requirement 3](#requirement-3-3)
+    -   [Requirement 4](#requirement-4-3)
 
 # Exercise 1 - ANOVA
 
@@ -348,3 +356,209 @@ Among the statements below, which one is NOT under the Classical Linear Model as
 -   [ ] the error term u is independent of the explanatory variables.
 -   [ ] the error term u has mean 0.
 -   [x] the variance of the error term u is a function of the explanatory variables.
+
+# Exercise 8 - ANOVA MLR
+
+The following results were obtained after estimating a multiple linear regression
+model with two independent variables:
+
+| ANOVA      | df  | SS    | MS   | F     |
+| ---------- | --- | ----- | ---- | ----- |
+| Regression | ?   | 302.1 | ?    | 47.95 |
+| Residual   | ?   | ?     | 3.15 |       |
+| Total      | 68  |       |      |       |
+
+$F_{critic} = 3.14$
+
+## Requirement 1
+
+Find and interpret the R Square.
+
+$$\text{"Two independent variables"} \Rightarrow k = 2$$
+
+$$df_{Explained} = k = 2$$
+
+$$df_{Total} = n - 1 = 68 \Rightarrow n = 69$$
+
+$$df_{Residual} = n - k - 1 = 69 - 2 - 1 = 66$$
+
+$$MS_{Residual} = \dfrac{SS_{Residual}}{df_{Residual}} \Rightarrow 3.15 = \dfrac{SS_{Residual}}{66} \\ \Rightarrow SS_{Residual} = 3.15 \cdot 66 = 207.9$$
+
+$$SS_{Total} = SS_{Explained} + SS_{Residual} = 302.1 + 207.9 = 510$$
+
+$$MS_{Explained} = \dfrac{SS_{Explained}}{df_{Explained}} = \dfrac{302.1}{2} = 151.05$$
+
+| ANOVA                  | df  | SS    | MS     | F     |
+| ---------------------- | --- | ----- | ------ | ----- |
+| Regression (Explained) | 2   | 302.1 | 151.05 | 47.95 |
+| Residual               | 66  | 207.9 | 3.15   |       |
+| Total                  | 68  | 510   |        |       |
+
+$$R^2 = \dfrac{SS_{Explained}}{SS_{Total}} = \dfrac{302.1}{510} = 0.5923 = 59.23\%$$
+
+> This means that $59.23\%$ of the variability in the dependent variable is explained by the 2 independent variables in the model.
+
+## Requirement 2
+
+Test if the regression model is statistically significant.
+
+$$47.95 > 3.14 \Leftrightarrow F > F_{critical} \Rightarrow \text{reject }H_0$$
+
+> The model is **statistically significant**.
+
+# Exercise 9 - Excel Output
+
+The results after estimating a multiple linear regression model for unemployment rate in 19 EU countries are:
+
+| Regression Statistics |     |
+| --------------------- | --- |
+| Multiple R            | ?   |
+| R Square              | ?   |
+| Adjusted R Square 0.  | 568 |
+| Standard Error 3.     | 098 |
+| Observations          | 19  |
+
+| ANOVA                  | df  | SS  | MS  | F   |
+| ---------------------- | --- | --- | --- | --- |
+| Regression (Explained) | ?   | ?   | ?   | ?   |
+| Residual               | ?   | ?   | ?   |     |
+| Total                  | ?   | ?   |     |     |
+
+|                                                       | Coefficients | Standard Error | t Stat | Lower $95\%$ | Upper $95\%$ |
+| ----------------------------------------------------- | ------------ | -------------- | ------ | ------------ | ------------ |
+| Intercept                                             | 43.98        | 9.09           | ?      | 24.61        | 63.35        |
+| Average Income (hundreds Euro)                        | ?            | 3.13           | ?      | -18.18       | -4.83        |
+| Number of insolvent companies (hundreds of companies) | ?            | ?              | 1.95   | -0.05        | 1.18         |
+| Share of persons with tertiary education(%)           | ?            | 0.09           | ?      | -0.40        | ?            |
+
+$F_{critic} = 3.287;\ t_{critic} = 2.131$
+
+## Requirement 1
+
+Fill in the table.
+
+For **Regression statistics**:
+
+$$\text{Adj. } R^2 = 1-(1-R^2)\cdot \dfrac{n-1}{n-k-1} \\ \Rightarrow R^2 = \dfrac{\text{Adj. } R^2 - 1}{\dfrac{n-1}{n-k-1}} + 1 = \dfrac{0.568-1}{\dfrac{18}{15}} + 1 = 0.64$$
+
+$$ \text{Multiple } R = \sqrt{R^2} = 0.8$$
+
+For **ANOVA**:
+
+$$\text{Observations} = 19 \Rightarrow n = 19$$
+
+$$\text{Number of independent variables} = 3 \Rightarrow k = 3$$
+
+$$df_{Explained} = k = 3$$
+
+$$df_{Residual} = n - k - 1 = 19 - 3 - 1 = 15$$
+
+$$df_{Total} = n - 1 = 19 - 1 = 18$$
+
+$$\sigma = 3.098 = \sqrt{MS_{Residual}} \Rightarrow MS_{Residual} = 3.098^2 = 9.59$$
+
+$$SS_{Residual} = MS_{Residual} * df_{Residual} = 9.59 * 15 \Rightarrow SS_{Residual} = 143.85$$
+
+$$R ^2 = \dfrac{SS_{Explained}}{SS_{Total}} \Rightarrow R^2 = \dfrac{SS_{Total} - SS_{Residual}}{SS_{Total}} = 1 - \dfrac{SS_{Residual}}{SS_{Total}} \\\\ \Rightarrow 0.64 = 1 - \dfrac{143.85}{SS_{Total}} \Rightarrow SS_{Total} = \dfrac{143.85}{1-0.64} \Rightarrow SS_{Total} = 399.58$$
+
+$$SS_{Total} = SS_{Explained} + SS_{Residual} \Rightarrow 399.58 = SS_{Explained} + 143.85 \\ \Rightarrow SS_{Explained} = 399.58 - 143.85 = 255.73$$
+
+$$MS_{Explained} = \dfrac{SS_{Explained}}{k} = \dfrac{255.73}{3} = 85.24$$
+
+$$F_{calculated} = \dfrac{MS_{Explained}}{MS_{Residual}} = \dfrac{85.24}{9.59} = 8.88$$
+
+For $\text{Intercept}$:
+
+$$t_{stat} = \dfrac{\hat \beta_0}{SE(\hat \beta_0)} = \dfrac{43.98}{9.09} = 4.83$$
+
+For $\text{Average Income}$:
+
+$$\beta_1 \in (-18.18, -4.83) \Leftrightarrow \beta_1 \in (\hat \beta_1 \pm t_{crit} \cdot SE(\hat \beta_1))$$
+
+$$-4.83 + (-18.18) = \hat \beta_1 - t_{crit} \cdot SE(\hat \beta_1) + \hat \beta_1 + t_{crit} \cdot SE(\hat \beta_1) \\ \Rightarrow -23.01 = 2 \hat \beta_1 \Rightarrow \hat \beta_1 = \dfrac{-23.01}{2} = -11.5$$
+
+$$t_{stat}(\hat \beta_1) = \dfrac{\hat \beta_1}{SE(\hat \beta_1)} = \dfrac{-11.5}{3.13} = -3.67$$
+
+---
+
+$$\beta_3 \in (-0.40, ?) \Leftrightarrow \beta_3 \in (\hat \beta_3 \pm t_{crit} \cdot SE(\hat \beta_3))$$
+
+$$-0.40 = \hat \beta_3 - 2.13 \cdot 0.09 \Rightarrow \hat \beta_3 = -0.20$$
+
+$$t_{stat}(\hat \beta_3) = \dfrac{\hat \beta_3}{SE(\hat \beta_3)} = \dfrac{-0.20}{0.09} = -2.22$$
+
+$$\beta_3 \in(-0.40, \text{Upper 95\%}), \text{Upper 95\%} = \hat \beta_3 + t_{critic} \cdot SE(\hat \beta_3) = -0.20 + 2.13 \cdot 0.09 = -0.008$$
+
+---
+
+$$t\_{stat}(\hat \beta_2) = 1.95 = \dfrac{\hat \beta_2}{SE(\hat \beta_2)} \Rightarrow SE(\hat \beta_2) = \dfrac{\hat \beta_2}{1.95}$$
+
+$$\text{Upper 95\%} = 1.18 = \hat \beta_2 + t_{crit} \cdot SE(\hat \beta_2) \\ \Rightarrow 1.18 = \hat \beta_2 + 2.13 \cdot \dfrac{\hat \beta_2}{1.95} \Rightarrow 1.18 = \hat \beta_2 (1 + \dfrac{2.13}{1.95}) \\ \Rightarrow \hat \beta_2 = \dfrac{1.18}{1 + \dfrac{2.13}{1.95}} = 0.56$$
+
+$$SE(\hat \beta_2) = \dfrac{0.56}{1.95} = 0.28$$
+
+| Regression Statistics |       |
+| --------------------- | ----- |
+| Multiple R            | 0.8   |
+| R Square              | 0.64  |
+| Adjusted R Square     | 0.568 |
+| Standard Error        | 3.098 |
+| Observations          | 19    |
+
+| ANOVA                  | df  | SS     | MS    | F    |
+| ---------------------- | --- | ------ | ----- | ---- |
+| Regression (Explained) | 3   | 255.73 | 85.24 | 8.88 |
+| Residual               | 15  | 143.85 | 9.59  |      |
+| Total                  | 18  | 399.58 |       |      |
+
+|                                                       | Coefficients | Standard Error | t Stat | Lower $95\%$ | Upper $95\%$ |
+| ----------------------------------------------------- | ------------ | -------------- | ------ | ------------ | ------------ |
+| Intercept                                             | 43.98        | 9.09           | 4.83   | 24.61        | 63.35        |
+| Average Income (hundreds Euro)                        | -11.5        | -3.67          | -5.8   | -18.18       | -4.83        |
+| Number of insolvent companies (hundreds of companies) | 0.56         | 0.28           | 1.95   | -0.05        | 1.18         |
+| Share of persons with tertiary education(%)           | -0.20        | 0.09           | -2.22  | -0.40        | -0.008       |
+
+## Requirement 2
+
+Is the regression model statistically significant?
+
+$$8.88 > 3.28 \Leftrightarrow F > F_{critical} \Rightarrow \text{reject }H_0$$
+
+> The model is **statistically significant**.
+
+## Requirement 3
+
+Find and interpret the linear regression parameters.
+
+$$
+\begin{cases}
+    \hat \beta_0 = 43.98 \\
+    \hat \beta_1 = -11.5 \\
+    \hat \beta_2 = 0.56 \\
+    \hat \beta_3 = -0.20
+\end{cases}
+$$
+
+> When both $x_1$, $x_2$ and $x_3$ are zero, the model predicts the baseline level of $y$ will be $43.98$ units.
+>
+> For each unit increase in $x_1$, the dependent variable $y$ is expected to decrease by $11.5$ units.
+>
+> For each unit increase in $x_2$, the dependent variable $y$ is expected to increase by $0.56$ units.
+>
+> For each unit increase in $x_3$, the dependent variable $y$ is expected to decrease by $0.20$ units.
+
+## Requirement 4
+
+Test if the regression coefficients are statistically significant.
+
+$$\lvert -5.8 \rvert > 2.13 \Leftrightarrow \lvert t_{calc}(\beta_1) \rvert > t_{critical} \Rightarrow \text{reject } H_0$$
+
+> The coefficient for the $\text{Average Income}$ variable is statistically significant. This suggests that average income has a statistically significant effect on crime rate.
+
+$$\lvert 1.95 \rvert < 2.13 \Leftrightarrow \lvert t_{calc}(\beta_0) \rvert < t_{critical} \Rightarrow \text{reject } H_1$$
+
+> The coefficient for the $\text{Number of insolvent companies }$ variable is statistically significant. This suggests that insolvent companies don't have a statistically significant effect on crime rate.
+
+$$\lvert -2.22 \rvert > 2.13 \Leftrightarrow \lvert t_{calc}(\beta_3) \rvert > t_{critical} \Rightarrow \text{reject } H_0$$
+
+> The coefficient for the $\text{Share of persons with tertiary education}$ variable is statistically significant. This suggests that the education level has a statistically significant effect on crime rate.

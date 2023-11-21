@@ -16,7 +16,7 @@ $$\hat \beta_1 = \dfrac{\sum (x_t - \bar x) \cdot (y_t - \bar y)}{\sum (x_t - \b
 
 # Standard Error
 
-$$\sigma_u = \sqrt{\sigma_u ^ 2} = \sqrt{\dfrac{\sum u_t ^ 2}{n-2}}$$
+$$\sigma_u = \sqrt{\sigma_u ^ 2} = \sqrt{\dfrac{\sum u_t ^ 2}{n-2}} = \sqrt{MS_{Residual}}$$
 
 $$SE(\beta_0) = \sigma_u \cdot \sqrt{\left(\dfrac{1}{n}+\dfrac{\bar x ^ 2}{\sum (x_t - \bar x) ^ 2}\right)}$$
 
@@ -55,6 +55,8 @@ $$k = \text{number of variables}$$
 $$n = \text{number of observations}$$
 
 $$R ^2 = \dfrac{SS_{Explained}}{SS_{Total}}$$
+
+$$\text{Adj. } R^2 = 1-(1-R^2)\cdot \dfrac{n-1}{n-k-1}$$
 
 # Hypothesis Testing (for ANOVA)
 
