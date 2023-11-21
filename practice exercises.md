@@ -82,7 +82,9 @@ $$R ^2 = \dfrac{SS_{Explained}}{SS_{Total}} = \dfrac{181.1287594}{231.7142857} =
 Test the validity of the regression model using Fisher test ($F_{critical} (0.025, 1, 5) = 6.6$).
 
 $$MS_{Explaiend} = \dfrac{SS_{Explained}}{k} = \dfrac{181.1287594}{1}= 181.12$$
+
 $$MS_{Residual} = \dfrac{SS_{Residual}}{n-k-1} = \dfrac{50.58552632}{5} = 10.11$$
+
 $$F = \dfrac{MS_{Explained}}{MS_{Residual}} = \dfrac{181.12}{10.11} = 17.90$$
 
 $$17.9 > 6.6 \Leftrightarrow F > F_{critical} \Rightarrow \text{reject }H_0$$
@@ -109,10 +111,12 @@ An economist analyses the effect of total assets on sales in a case of 7 large c
 Compute the regression coefficients of the model.
 
 $$\bar x = \dfrac{365}{7} = 52.14$$
+
 $$\bar y = \dfrac{256}{7} = 36.57$$
 
 Given the table we can compute $\hat \beta$ as such:  
 $$\hat \beta_1 = \dfrac{n \cdot \sum (x_t y_t) - \sum (x) \cdot \sum (y)}{n \cdot \sum(x ^2) - \sum (x)^2} = \dfrac{7 \cdot 15251 - 365 \cdot 256}{7 \cdot 21689 - 365 ^ 2} = 0.716$$
+
 $$\hat \beta_0 = \bar y - \beta_1 \cdot \bar x = 36.57 - 0.716 \cdot 52.14 = -0.765$$
 
 ## Requirement 2
@@ -132,6 +136,7 @@ Compute the standard errors of the model estimators.
 $$\sigma_u = \sqrt{\sigma_u ^ 2} = \sqrt{\dfrac{\sum u_t ^ 2}{n - 2}} = \sqrt{\dfrac{419.4903}{7-2}} = \sqrt{83.89} = 9.15$$
 
 $$SE(\hat \beta_1) = \dfrac{\sigma_u}{ \sqrt{\sum (x_t - \bar x) ^2}} = \dfrac{9.15}{\sqrt{2656.857}} = 0.178$$
+
 $$SE(\hat \beta_0) = \sigma_u \cdot \sqrt{\left(\dfrac{1}{n}+\dfrac{\bar x ^ 2}{\sum (x_t - \bar x) ^ 2}\right)} = 9.15 \sqrt{\dfrac{1}{7} + \dfrac{52.14 ^2}{2656.857}} = 9.88$$
 
 ## Requirement 4
@@ -155,7 +160,9 @@ $$\lvert 4.02 \rvert > 2.57 \Leftrightarrow \lvert t_{calc} \rvert > t_{critical
 Compute the confidence interval for the regression coefficient.
 
 $$\beta_1 \in (\hat \beta_1 - SE(\beta_1) \cdot t_{critical}; \hat \beta_1 + SE(\beta_1) \cdot t_{critical})$$
+
 $$\beta_1 \in (0.716 - 0.178 \cdot 2.57; 0.716 + 0.178 \cdot 2.57)$$
+
 $$ \beta_1 \in (0.25;\ 1.17) $$
 
 ## Requirement 7
@@ -163,6 +170,7 @@ $$ \beta_1 \in (0.25;\ 1.17) $$
 Determine and interpret the value of the determination coefficient.
 
 $$SS_{Explained} = \sum(\hat y_t - \bar y)^2 = 1362.224$$
+
 $$SS_{Total} = \sum(y_i - \bar y)^2 = 1781.714$$
 
 $$R ^2 = \dfrac{SS_{Explained}}{SS_{Total}} = \dfrac{1362.224}{1781.714} = 0.7645 = 76.45\%$$
@@ -214,6 +222,7 @@ $$
 Test the hypothesis stated above at the $5\%$ significance level.
 
 $$t_{calculated} = \dfrac{\hat \beta_2}{SE(\hat \beta_2)} = \dfrac{0.006}{0.0025} = 2.4$$
+
 $$t_{critical} = t_{\alpha/2;\ n - k - 1} = t_{0.05/2;\ 58 - 3 - 1} = 2.00$$
 
 $$\lvert 2.4 \rvert > 2 \Leftrightarrow \lvert t_{calc} \rvert > t_{critical} \Rightarrow \text{reject } H_0$$
@@ -293,6 +302,7 @@ $$\hat y = 75.502 − 92.2006 \times x_1 − 14.02562 \times x_2$$
 Using a sample of $706$ respondents, we estimated the following regression equation that explains the individuals’ sleeping behaviour by gender:
 
 $$sleep=\underset{(235.11)}{3840.83} - \underset{(.018)}{0.163} \times totwrk - \underset{(5.86)}{11.71} \times educ - \\ \underset{(11.21)}{8.70} \times age + \underset{(.134)}{0.128} \times age^2 + \underset{(34.33)}{87.75} \times male$$
+
 $$R^2 = 0.123$$
 
 The variable **sleep** is total minutes per week spent sleeping at night, **totwrk** is total weekly minutes spent working, **educ** and **age** are measured in years, and **male** is a gender dummy. Standard errors are provided within parenthesis.
@@ -302,7 +312,9 @@ The variable **sleep** is total minutes per week spent sleeping at night, **totw
 All other factors being equal, is there evidence that men sleep more than women? How strong is the evidence?
 
 $$t_{calc} = \dfrac{\beta_6}{SE(\beta_6)} = \dfrac{87.75}{34.33} = 2.56$$
+
 $$t_{critic} = t_{\alpha/2;\ n - k - 1} = t_{0.05;\ 701} = 1.96$$
+
 $$\lvert t_{calc} \rvert > t_{critic} \Leftrightarrow \lvert 2.56 \rvert > 1.96 \Rightarrow \text{reject } H_0$$
 
 > The coefficient for the $\text{male}$ variable is statistically significant. This suggests that there is significant evidence that **men sleep more than women**.
@@ -312,7 +324,9 @@ $$\lvert t_{calc} \rvert > t_{critic} \Leftrightarrow \lvert 2.56 \rvert > 1.96 
 Is there a statistically significant trade-off between working and sleeping? What is the estimated trade-off?
 
 $$t_{calc} = \dfrac{\beta_1}{SE(\beta_1)} = \dfrac{-0.163}{0.018} = -9.05$$
+
 $$t_{critic} = t_{\alpha/2;\ n - k - 1} = t_{0.05;\ 701} = 1.96$$
+
 $$\lvert-9.05\rvert > 1.96 \Leftrightarrow \lvert t_{calc} \rvert > t_{critic} \Rightarrow \text{reject } H_0$$
 
 > The coefficient for the $\text{totwrk}$ variable is statistically significant. This suggests that total work has a statistically significant effect on sleep. Also, because the coefficient is negative, that means that it is a **trade-off**.
