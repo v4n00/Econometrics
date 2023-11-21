@@ -35,14 +35,19 @@
 | $\sum$ | 18    | 30    | -              | -              | 30                                    | 20                   | -                                | -     | 3         |
 
 $$y_t = \beta_0 + \beta_1 \cdot x_t + u_t;\ t = \overline{1,n}$$
+
 $$\hat y_t =\hat \beta_0 + \hat \beta_1 \cdot x_t + \bar u$$
+
 $$\bar x = \dfrac{\sum x_t}{n} = \dfrac{18}{6} = 3$$
+
 $$\bar y = \dfrac{\sum y_t}{n} = \dfrac{30}{6} = 5$$
 
 $$\hat \beta_1 = \dfrac{\sum (x_t - \bar x) \cdot (y_t - \bar y)}{\sum (x_t - \bar x)^2} = \dfrac{30}{20} = 1.5$$
+
 $$\hat \beta_0 = \bar y - \beta_1 \cdot \bar x = 5 - 1.5 \cdot 3 = 5 - 4.5 = 0.5$$
 
 $$\hat y_t = 0.5 + 1.5 \cdot x_t$$
+
 $$u_t = y_t - \hat y_t$$
 
 ## Hypothesis testing
@@ -57,27 +62,35 @@ $$
 ### 1. Testing the significance with confidence intervals
 
 $$\beta - SE(\beta) \cdot t_{critical} \text{ (upper limit)}$$
+
 $$\beta + SE(\beta) \cdot t_{critical} \text{ (lower limit)}$$
+
 $$t_{critical} = t_{\alpha / 2;n-2} = t_{0.05/2;4} = 2.776$$
 
 **Standard error (analytical)**
 
 $$SE(\beta_0) = \sigma_u \cdot \sqrt{\cdot \left(\dfrac{1}{n}+\dfrac{\bar x ^ 2}{\sum (x_t - \bar x) ^ 2}\right)}$$
+
 $$SE(\beta_1) = \dfrac{\sigma_u}{ \sqrt{\sum (x_t - \bar x) ^2}}$$
 
 $$\sigma_u = \sqrt{\sigma_{u_t} ^ 2} = \sqrt{\text{MS Residual}}$$
+
 $$\sigma_u ^ 2 = \dfrac{\sum u_t ^ 2}{n-2}$$
+
 $$\beta_0 \in ( \beta_0 - SE(\beta_0) \cdot t_{critical},\ \beta_0 + SE(\beta_0) \cdot t_{critical})$$
 
 **Standard eror (numerical)**
 
 $$\sigma_{u_t}^2 = \dfrac{3}{4} = 0.75$$
+
 $$\sigma_u = \sqrt{0.75} = 0.9$$
 
 $$SE(\beta_0) = 0.9 \cdot \sqrt{\dfrac{1}{6}+\dfrac{3 ^ 2}{20}} = 0.7$$
+
 $$SE(\beta_1) = \dfrac{0.9}{\sqrt{20}} = 0.2$$
 
 $$\beta_0 \in (0.5 - 0.7 \cdot 2.776,\ 0.5 + 0.7 \cdot 2.776) \Rightarrow \beta_0 \in (-1.44,\ 2.44)$$
+
 $$\beta_1 \in (1.5 - 0.2 \cdot 2.776,\ 1.5 + 0.2 \cdot 2.776) \Rightarrow \beta_1 \in (0.94,\ 2.06)$$
 
 > The confidence intervals shows with $(100 - \alpha)\%$ that the value of $\beta$ lays between the range of lower and upper limits:
@@ -97,9 +110,11 @@ $$
 $$
 
 $$t_{calc} = \dfrac{\hat \beta - \beta_{H_0}}{SE(\hat \beta)} = \dfrac{\hat \beta}{SE(\hat \beta)}$$
+
 $$t_{calc} > t_{critical} \Leftrightarrow \text{reject } H_0 \text{, else reject } H_1$$
 
 $$t_{calc}(\hat \beta_1) = \dfrac{\hat \beta_1}{SE(\hat \beta_1)} = \dfrac{1.5}{0.2} = 7.5$$
+
 $$t_{calc}(\hat \beta_0) = \dfrac{\hat \beta_0}{SE(\hat \beta_0)} = \dfrac{0.5}{0.7} = 0.71$$
 
 $$7.5 > 2.776 \Leftrightarrow t_{calc}(\hat \beta_1) > t_{critical} \Rightarrow \text{reject } H_0$$
