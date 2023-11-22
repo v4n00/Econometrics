@@ -443,6 +443,8 @@ $$\text{Adj. } R^2 = 1-(1-R^2)\cdot \dfrac{n-1}{n-k-1} \\ \Rightarrow R^2 = \dfr
 
 $$ \text{Multiple } R = \sqrt{R^2} = 0.8$$
 
+---
+
 For **ANOVA**:
 
 $$\text{Observations} = 19 \Rightarrow n = 19$$
@@ -467,9 +469,13 @@ $$MS_{Explained} = \dfrac{SS_{Explained}}{k} = \dfrac{255.73}{3} = 85.24$$
 
 $$F_{calculated} = \dfrac{MS_{Explained}}{MS_{Residual}} = \dfrac{85.24}{9.59} = 8.88$$
 
+---
+
 For $\text{Intercept}$:
 
 $$t_{stat} = \dfrac{\hat \beta_0}{SE(\hat \beta_0)} = \dfrac{43.98}{9.09} = 4.83$$
+
+---
 
 For $\text{Average Income}$:
 
@@ -496,6 +502,8 @@ $$t\_{stat}(\hat \beta_2) = 1.95 = \dfrac{\hat \beta_2}{SE(\hat \beta_2)} \Right
 $$\text{Upper 95\%} = 1.18 = \hat \beta_2 + t_{crit} \cdot SE(\hat \beta_2) \\ \Rightarrow 1.18 = \hat \beta_2 + 2.13 \cdot \dfrac{\hat \beta_2}{1.95} \Rightarrow 1.18 = \hat \beta_2 (1 + \dfrac{2.13}{1.95}) \\ \Rightarrow \hat \beta_2 = \dfrac{1.18}{1 + \dfrac{2.13}{1.95}} = 0.56$$
 
 $$SE(\hat \beta_2) = \dfrac{0.56}{1.95} = 0.28$$
+
+---
 
 | Regression Statistics |       |
 | --------------------- | ----- |
