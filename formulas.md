@@ -16,7 +16,7 @@ $$\hat \beta_1 = \dfrac{\sum (x_t - \bar x) \cdot (y_t - \bar y)}{\sum (x_t - \b
 
 # Standard Error
 
-$$\sigma_u = \sqrt{\sigma_u ^ 2} = \sqrt{\dfrac{\sum u_t ^ 2}{n-2}} = \sqrt{MS_{Residual}}$$
+$$\sigma_u = \sqrt{\sigma_u ^ 2} = \sqrt{\dfrac{\sum u_t ^ 2}{n-k-1}} = \sqrt{MS_{Residual}}$$
 
 $$SE(\beta_0) = \sigma_u \cdot \sqrt{\left(\dfrac{1}{n}+\dfrac{\bar x ^ 2}{\sum (x_t - \bar x) ^ 2}\right)}$$
 
@@ -24,7 +24,7 @@ $$SE(\beta_1) = \dfrac{\sigma_u}{ \sqrt{\sum (x_t - \bar x) ^2}}$$
 
 # Hypothesis Testing
 
-$$t_{critical} = t_{\alpha / 2;n-2}$$
+$$t_{critical} = t_{\alpha / 2;n-k-1}$$
 
 $$\beta_i \in (\hat \beta_i - SE(\beta_i) \cdot t_{critical}; \hat \beta_i + SE(\beta_i) \cdot t_{critical})$$
 
