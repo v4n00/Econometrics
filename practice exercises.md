@@ -337,7 +337,7 @@ $$t_{critic} = t_{\alpha/2;\ n - k - 1} = t_{0.05;\ 701} = 1.96$$
 
 $$\lvert-9.05\rvert > 1.96 \Leftrightarrow \lvert t_{calc} \rvert > t_{critic} \Rightarrow \text{reject } H_0$$
 
-> The coefficient for the $\text{totwrk}$ variable is statistically significant. This suggests that total work has a statistically significant effect on sleep. Also, because the coefficient is negative, that means that it is a **trade-off**.
+> The coefficient for the $\text{totwrk}$ variable is statistically significant. This suggests that total work has a statistically significant effect on sleep. Also, because the coefficient is negative, that means that it is a **trade-off**. For each additional minute spent working, sleep decreases by $0.163$ minutes.
 
 # Exercise 6 - True or False?
 
