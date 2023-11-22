@@ -321,7 +321,7 @@ All other factors being equal, is there evidence that men sleep more than women?
 
 $$t_{calc} = \dfrac{\beta_6}{SE(\beta_6)} = \dfrac{87.75}{34.33} = 2.56$$
 
-$$t_{critic} = t_{\alpha/2;\ n - k - 1} = t_{0.05;\ 701} = 1.96$$
+$$t_{critic} = t_{\alpha/2;\ n - k - 1} = t_{0.05;\ 700} = 1.96$$
 
 $$\lvert t_{calc} \rvert > t_{critic} \Leftrightarrow \lvert 2.56 \rvert > 1.96 \Rightarrow \text{reject } H_0$$
 
@@ -333,7 +333,7 @@ Is there a statistically significant trade-off between working and sleeping? Wha
 
 $$t_{calc} = \dfrac{\beta_1}{SE(\beta_1)} = \dfrac{-0.163}{0.018} = -9.05$$
 
-$$t_{critic} = t_{\alpha/2;\ n - k - 1} = t_{0.05;\ 701} = 1.96$$
+$$t_{critic} = t_{\alpha/2;\ n - k - 1} = t_{0.05;\ 700} = 1.96$$
 
 $$\lvert-9.05\rvert > 1.96 \Leftrightarrow \lvert t_{calc} \rvert > t_{critic} \Rightarrow \text{reject } H_0$$
 
