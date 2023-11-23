@@ -12,15 +12,15 @@ $$u_t = y_t - \hat y_t$$
 
 $$\hat \beta_0 = \bar y - \hat \beta_1 \cdot \bar x$$
 
-$$\hat \beta_1 = \dfrac{\sum (x_t - \bar x) \cdot (y_t - \bar y)}{\sum (x_t - \bar x)^2} \\ \text{or} \\ \hat \beta_1 = \dfrac{n \cdot \sum (x_t y_t) - \sum (x) \cdot \sum (y)}{n \cdot \sum(x ^2) - \sum (x)^2}$$
+$$\hat \beta_1 = \dfrac{\sum [(x_t - \bar x) \cdot (y_t - \bar y)]}{\sum [(x_t - \bar x)^2]} \\ \text{or} \\ \hat \beta_1 = \dfrac{n \cdot \sum (x_t y_t) - \sum (x) \cdot \sum (y)}{n \cdot \sum(x ^2) - [\sum (x)]^2}$$
 
 # Standard Error
 
-$$\sigma_u = \sqrt{\sigma_u ^ 2} = \sqrt{\dfrac{\sum u_t ^ 2}{n-2}} = \sqrt{MS_{Residual}}$$
+$$\sigma_u = \sqrt{\sigma_u ^ 2} = \sqrt{\dfrac{\sum (u_t ^ 2)}{n-2}} = \sqrt{MS_{Residual}}$$
 
-$$SE(\beta_0) = \sigma_u \cdot \sqrt{\left(\dfrac{1}{n}+\dfrac{\bar x ^ 2}{\sum (x_t - \bar x) ^ 2}\right)}$$
+$$SE(\beta_0) = \sigma_u \cdot \sqrt{\dfrac{1}{n}+\dfrac{\bar x ^ 2}{\sum [(x_t - \bar x) ^ 2]}}$$
 
-$$SE(\beta_1) = \dfrac{\sigma_u}{ \sqrt{\sum (x_t - \bar x) ^2}}$$
+$$SE(\beta_1) = \dfrac{\sigma_u}{ \sqrt{\sum [(x_t - \bar x) ^2]}}$$
 
 # Hypothesis Testing
 
@@ -39,12 +39,12 @@ $$t_{calc} > t_{critical} \Leftrightarrow \text{reject } H_0 \text{, else reject
 
 # ANOVA
 
-|                        |           |                                               |                                                |                                             |
-| ---------------------- | --------- | --------------------------------------------- | ---------------------------------------------- | ------------------------------------------- |
-| Variance due to        | df        | Sum of Squares                                | Mean of suqares                                | F                                           |
-| Regression (Explained) | $k$       | $SS_{Explained} = \sum (\hat y_t - \bar y)^2$ | $MS_{Explaiend} = \dfrac{SS_{Explained}}{k}$   | $F = \dfrac{MS_{Explained}}{MS_{Residual}}$ |
-| Residuals              | $n-k - 1$ | $SS_{Residual} = \sum (y_t - \hat y_t)^2$     | $MS_{Residual} = \dfrac{SS_{Residual}}{n-k-1}$ |                                             |
-| Total                  | $n-1$     | $SS_{Total} = \sum (y_t - \bar y) ^2$         | $MS_{Total} = \dfrac{SS_{Total}}{n-1}$         |                                             |
+|                        |           |                                                 |                                                |                                             |
+| ---------------------- | --------- | ----------------------------------------------- | ---------------------------------------------- | ------------------------------------------- |
+| Variance due to        | df        | Sum of Squares                                  | Mean of suqares                                | F                                           |
+| Regression (Explained) | $k$       | $SS_{Explained} = \sum [(\hat y_t - \bar y)^2]$ | $MS_{Explaiend} = \dfrac{SS_{Explained}}{k}$   | $F = \dfrac{MS_{Explained}}{MS_{Residual}}$ |
+| Residuals              | $n-k - 1$ | $SS_{Residual} = \sum [(y_t - \hat y_t)^2]$     | $MS_{Residual} = \dfrac{SS_{Residual}}{n-k-1}$ |                                             |
+| Total                  | $n-1$     | $SS_{Total} = \sum [(y_t - \bar y) ^2]$         | $MS_{Total} = \dfrac{SS_{Total}}{n-1}$         |                                             |
 
 $$SS_{Total} = SS_{Explained} + SS_{Regression}$$
 
