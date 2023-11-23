@@ -10,6 +10,7 @@
     -   [Analytical](#analytical)
     -   [Numerical](#numerical)
 -   [Multiple Linear Analysis](#multiple-linear-analysis)
+-   [Multicollinearity](#multicollinearity)
 
 # The dataset
 
@@ -49,6 +50,8 @@ $$\hat \beta_0 = \bar y - \beta_1 \cdot \bar x = 5 - 1.5 \cdot 3 = 5 - 4.5 = 0.5
 $$\hat y_t = 0.5 + 1.5 \cdot x_t$$
 
 $$u_t = y_t - \hat y_t$$
+
+$$T ^ 2 = \hat \beta_2$$
 
 ## Hypothesis testing
 
@@ -281,3 +284,34 @@ $$
     \sum x_t y_t
 \end{bmatrix}
 $$
+
+# Multicollinearity
+
+$$VIF = \dfrac{1}{1-R_k^2} < 10$$
+
+```R
+RSq1=lm(NoSellers~CommercialArea+ShoppingCenter, data=MLR_Assumption_and_Dummy)
+summary(RSq1)
+```
+
+$$x_1 = f(x_2;x_3) \Rightarrow R_1^2 = 0.8848$$
+
+```R
+RSq2=lm(CommercialArea~NoSellers+ShoppingCenter, data=MLR_Assumption_and_Dummy)
+summary(RSq2)
+```
+
+$$x_2 = f(x_1;x_3) \Rightarrow R_2^2 = 0.8391$$
+
+```R
+RSq3=lm(ShoppingCenter~NoSellers+CommercialArea, data=MLR_Assumption_and_Dummy)
+summary(RSq3)
+```
+
+$$x_3 = f(x_1;x_2) \Rightarrow R_3^2 = 0.5266$$
+
+$$VIF_1 = \dfrac{1}{1-R_1^2} = \dfrac{1}{1-0.8848} = 8.68$$
+$$VIF_2 = \dfrac{1}{1-R_2^2} = \dfrac{1}{1-0.8391} = 6.62$$
+$$VIF_3 = \dfrac{1}{1-R_3^2} = \dfrac{1}{1-0.5266} = 2.11$$
+
+> If the variables are $< 10$, this means none of the variables generate multicollinearity, if they do we might need to reconsider them
