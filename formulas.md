@@ -39,9 +39,8 @@ $$t_{calc} > t_{critical} \Leftrightarrow \text{reject } H_0 \text{, else reject
 
 # ANOVA
 
-|                        |           |                                                 |                                                |                                             |
-| ---------------------- | --------- | ----------------------------------------------- | ---------------------------------------------- | ------------------------------------------- |
 | Variance due to        | df        | Sum of Squares                                  | Mean of suqares                                | F                                           |
+| ---------------------- | --------- | ----------------------------------------------- | ---------------------------------------------- | ------------------------------------------- |
 | Regression (Explained) | $k$       | $SS_{Explained} = \sum [(\hat y_t - \bar y)^2]$ | $MS_{Explaiend} = \dfrac{SS_{Explained}}{k}$   | $F = \dfrac{MS_{Explained}}{MS_{Residual}}$ |
 | Residuals              | $n-k - 1$ | $SS_{Residual} = \sum [(y_t - \hat y_t)^2]$     | $MS_{Residual} = \dfrac{SS_{Residual}}{n-k-1}$ |                                             |
 | Total                  | $n-1$     | $SS_{Total} = \sum [(y_t - \bar y) ^2]$         | $MS_{Total} = \dfrac{SS_{Total}}{n-1}$         |                                             |
