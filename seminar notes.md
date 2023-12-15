@@ -10,7 +10,18 @@
     -   [Analytical](#analytical)
     -   [Numerical](#numerical)
 -   [Multiple Linear Analysis](#multiple-linear-analysis)
--   [Multicollinearity](#multicollinearity)
+-   [Theories](#theories)
+    -   [Multicollinearity](#multicollinearity)
+    -   [Autocorrelation](#autocorrelation)
+    -   [Homoscedasticity](#homoscedasticity)
+        -   [Glesjer test](#glesjer-test)
+        -   [White test](#white-test)
+    -   [Normality](#normality)
+-   [Non-linear models](#non-linear-models)
+    -   [lin-lin](#lin-lin)
+    -   [log-lin](#log-lin)
+    -   [lin-log](#lin-log)
+    -   [log-log](#log-log)
 
 # The dataset
 
@@ -285,7 +296,9 @@ $$
 \end{bmatrix}
 $$
 
-# Multicollinearity
+# Theories
+
+## Multicollinearity
 
 $$VIF = \dfrac{1}{1-R_k^2} < 10$$
 
@@ -311,7 +324,158 @@ summary(RSq3)
 $$x_3 = f(x_1;x_2) \Rightarrow R_3^2 = 0.5266$$
 
 $$VIF_1 = \dfrac{1}{1-R_1^2} = \dfrac{1}{1-0.8848} = 8.68$$
+
 $$VIF_2 = \dfrac{1}{1-R_2^2} = \dfrac{1}{1-0.8391} = 6.62$$
+
 $$VIF_3 = \dfrac{1}{1-R_3^2} = \dfrac{1}{1-0.5266} = 2.11$$
 
 > If the variables are $< 10$, this means none of the variables generate multicollinearity, if they do we might need to reconsider them
+
+## Autocorrelation
+
+1. Formulate the hypothesis
+
+$$
+\begin{cases}
+    H_0: \text{No autocorrelation} \\
+    H_1: \text{Reject } H_0 \text{, autocorrelation}
+\end{cases}
+$$
+
+2. Calculate the Durbin Watson test
+
+$$DW = \dfrac{\sum_{t=2}^T [(\hat u_t - \hat u_{t-1})^2]}{\sum_{t=2}^T \hat u_t^2}$$
+
+$$DW_{computed} = 1.59$$
+
+> For a more detailed look please look at the [excel file](./MLModel.xlsx)
+
+3. Get the DW critical values from [here](https://www.statisticshowto.com/durbin-watson-test-coefficient/)
+
+$$DW_{critical} = DW_{0.05;\ n;\ k} = 1.64$$
+
+$$d_U = 1.65$$
+
+$$d_L = 0.7$$
+
+4. Compare the values in the following table
+
+|     | Significant positive autocorrelation |       | No decision |       | No significant autocorrelation |         | No decision |         | Significant negative autocorrelation |     |
+| --- | ------------------------------------ | ----- | ----------- | ----- | ------------------------------ | ------- | ----------- | ------- | ------------------------------------ | --- |
+| 0   |                                      | $d_L$ |             | $d_U$ |                                | $4-d_U$ |             | $4-d_L$ |                                      | 4   |
+
+In our case:
+
+|     | Significant positive autocorrelation |       | No decision |        | No significant autocorrelation |        | No decision |       | Significant negative autocorrelation |     |
+| --- | ------------------------------------ | ----- | ----------- | ------ | ------------------------------ | ------ | ----------- | ----- | ------------------------------------ | --- |
+| 0   |                                      | $0.7$ | X           | $1.64$ |                                | $2.36$ |             | $3.3$ |                                      | 4   |
+
+> $DW_{comp}=1.6$ is between $d_L=0.7$ and $d_U=1.64$, therefore we can not say if the H0 hypothesis is rejected or not.
+
+## Homoscedasticity
+
+1. Formulate the hypothesis
+
+$$
+\begin{cases}
+    H_0: \text{there is homoscedasticity} \\
+    H_1: \text{Reject } H_0 \text{, heteroscedasticity}
+\end{cases}
+$$
+
+### Glesjer test
+
+2. Make the regression model with the residuals (as absolute value) as the dependent variable and all the variables as the independent variables
+
+$$|U_i| = \alpha_0 + \alpha_1 x_1 + \alpha_2 x_2 + ... + \alpha_k x_k$$
+
+In our case:
+
+$$|U_i| = \alpha_0 + \alpha_1 \times \text{NoSellers} + \alpha_2 \times \text{CommercialArea}$$
+
+3. If the coefficients are statistically significant we have heteroscedasticity (reject H0), if not, we have homoscedasticity
+
+From the [excel file](./MLModel.xlsx):
+
+|                |     | P-value |
+| -------------- | --- | ------- |
+| Intercept      | ... | 0.3464  |
+| NoSellers      | ... | 0.5879  |
+| CommercialArea | ... | 0.2169  |
+
+> Because the coeffiecients, in our case, are not statistically significant, we conclude that we accept $H_0$ and the error term is homoscedastic.
+
+### White test
+
+2. Make the regression model with the residuals (squared) as the dependent variable and all the variables as the independent variables and their squared values
+
+$$U_i^2 = \alpha_0 + \alpha_1 x_1 + \alpha_1^2 x_1^2 + \alpha_2 x_2 + \alpha_2^2 x_2^2 + ... + \alpha_k x_k + \alpha_k^2 x_k^2$$
+
+In our case:
+
+$$U_i^2 = \alpha_0 + \alpha_1 \times \text{NoSellers} + \alpha_1^2 \times \text{NoSellers}^2 + \\ \alpha_2 \times \text{CommercialArea} + \alpha_2^2 \times \text{CommercialArea}^2$$
+
+3. We compute the model, take $R^2$ and compute the white test
+
+From the [excel file](./MLModel.xlsx):
+
+$$R^2 = 0.594869$$
+
+$$n=10 \text{ (no. observations)}$$
+
+$$LM = n \cdot R^2 = 10 * 0.59486 = 5.9486$$
+
+4. Compare to critical value
+
+> Get the critical values from [here](https://people.richland.edu/james/lecture/m170/tbl-chi.html)
+
+$$k = 4 \text{ (no. of independent variables used for the model above)}$$
+
+$$\chi_{0.05; k}^2  = \chi_{0.05; 4}^2 = 9.488$$
+
+$$5.95 < 9.488 \Leftrightarrow LM < \chi^2 \Rightarrow \text{accept } H_0$$
+
+## Normality
+
+1. Formulate the hypothesis
+
+$$
+\begin{cases}
+    H_0: \text{the residuals are normally distributed} \\
+    H_1: \text{the residuals are not normally distributed}
+\end{cases}
+$$
+
+2. Given skewness and kurtosis (if not, check the [excel file](./MLModel.xlsx) for steps on how to calculate) calculate the $JB$ coefficient
+
+$$JB = \dfrac{n}{6} \left[\text{Skewness}^2+\dfrac{(\text{Kurtosis} - 3)^2}{4}\right] = 1.43$$
+
+3. Compare against the static value of $\chi^2 = 5.99$
+
+$$1.43 < 5.99 \Leftrightarrow JB > \chi^2 \Rightarrow \text{reject } H_0$$
+
+# Non-linear models
+
+## lin-lin
+
+$$y=f(x)$$
+
+$$1 \text{ unit change in } x \text{ leads to } \beta \text{ units change in } y$$
+
+## log-lin
+
+$$\log{y}=f(x)$$
+
+$$1 \text{ unit change in } x \text{ leads to } 100 \times \beta \text{ units change in } y$$
+
+## lin-log
+
+$$y=f(\log{x})$$
+
+$$1 \text{\% unit change in } x \text{ leads to } \beta \text{ units change in } y$$
+
+## log-log
+
+$$\log{y}=f(\log{x})$$
+
+$$1 \text{\% unit change in } x \text{ leads to } \dfrac{\beta}{100} \text{ units change in } y$$
