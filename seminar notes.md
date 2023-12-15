@@ -107,7 +107,7 @@ $$\beta_0 \in (0.5 - 0.7 \cdot 2.776,\ 0.5 + 0.7 \cdot 2.776) \Rightarrow \beta_
 
 $$\beta_1 \in (1.5 - 0.2 \cdot 2.776,\ 1.5 + 0.2 \cdot 2.776) \Rightarrow \beta_1 \in (0.94,\ 2.06)$$
 
-> The confidence intervals shows with $(100 - \alpha)\%$ that the value of $\beta$ lays between the range of lower and upper limits:
+> The confidence intervals shows with $(100 - \alpha)$% that the value of $\beta$ lays between the range of lower and upper limits:
 >
 > -   With 95% confidence $\beta_0$ can be between $-1.44$ and $2.44$
 > -   With 95% confidence $\beta_1$ can be between $0.94$ and $2.06$
@@ -472,10 +472,10 @@ $$1 \text{ unit change in } x \text{ leads to } 100 \times \beta \text{ units ch
 
 $$y=f(\log{x})$$
 
-$$1 \text{\% unit change in } x \text{ leads to } \beta \text{ units change in } y$$
+$$1 \text{ percent unit change in } x \text{ leads to } \beta \text{ units change in } y$$
 
 ## log-log
 
 $$\log{y}=f(\log{x})$$
 
-$$1 \text{\% unit change in } x \text{ leads to } \dfrac{\beta}{100} \text{ units change in } y$$
+$$1 \text{ percent unit change in } x \text{ leads to } \dfrac{\beta}{100} \text{ units change in } y$$
