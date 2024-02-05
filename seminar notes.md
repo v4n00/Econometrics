@@ -12,11 +12,21 @@
 -   [Multiple Linear Analysis](#multiple-linear-analysis)
 -   [Theories](#theories)
     -   [Multicollinearity](#multicollinearity)
-    -   [Autocorrelation](#autocorrelation)
+        -   [Causes](#causes)
+        -   [Consequences](#consequences)
+        -   [Testing](#testing)
+    -   [Auto-correlation](#auto-correlation)
+        -   [Causes](#causes-1)
+        -   [Consequences](#consequences-1)
+        -   [Testing](#testing-1)
     -   [Homoscedasticity](#homoscedasticity)
-        -   [Glesjer test](#glesjer-test)
-        -   [White test](#white-test)
+        -   [Causes](#causes-2)
+        -   [Consequences](#consequences-2)
+        -   [Testing](#testing-2)
+            -   [Glesjer test](#glesjer-test)
+            -   [White test](#white-test)
     -   [Normality](#normality)
+        -   [Testing](#testing-3)
 -   [Non-linear models](#non-linear-models)
     -   [lin-lin](#lin-lin)
     -   [log-lin](#log-lin)
@@ -196,6 +206,7 @@ $$F_{critical} = F_{\alpha;\ k;\ n-k-1} = F_{0.05;\ 1;\ 4}= 7.70$$
 
 $$60 > 7.7 \Leftrightarrow F > F_{critical} \Rightarrow \text{reject }H_0$$
 
+> The model is valid if we reject $H_0$.  
 > The regression model is valid.
 
 # Multiple Linear Analysis
@@ -300,6 +311,23 @@ $$
 
 ## Multicollinearity
 
+### Causes
+
+-   the selection of a dependent variable
+-   poor usage and choice of dummy variable
+-   variable repetition in a linear regression model
+
+### Consequences
+
+-   perfect or approximate multicollinearity
+-   although BLUE, the OLS estimators have large variances and covariances, making precise estimation difficult
+-   the confidence intervals tend to be much wider, leading to the acceptance of the null hypothesis when it should be rejected
+
+> OLS means Ordinary Least Squares
+> BLUE means Best Linear Unbiased Estimator
+
+### Testing
+
 $$VIF = \dfrac{1}{1-R_k^2} < 10$$
 
 ```R
@@ -331,7 +359,22 @@ $$VIF_3 = \dfrac{1}{1-R_3^2} = \dfrac{1}{1-0.5266} = 2.11$$
 
 > If the variables are $< 10$, this means none of the variables generate multicollinearity, if they do we might need to reconsider them
 
-## Autocorrelation
+## Auto-correlation
+
+### Causes
+
+-   inertia or sluggishness in the economic time series
+-   the residuals may suggest some variables that were originally candidate, but were not included in the model
+
+### Consequences
+
+-   OLS are still unbiased and consistent
+-   OLS is not efficient anymore, but still a linear unbiased estimator
+-   in most cases, $R^2$ will be overestimated
+
+> OLS means Ordinary Least Squares
+
+### Testing
 
 1. Formulate the hypothesis
 
@@ -344,11 +387,11 @@ $$
 
 2. Calculate the Durbin Watson test
 
-$$DW = \dfrac{\sum_{t=2}^T [(\hat u_t - \hat u_{t-1})^2]}{\sum_{t=2}^T \hat u_t^2}$$
+$$DW = \dfrac{\sum\limits_{t=2}^T [(\hat u_t - \hat u_{t-1})^2]}{\sum_{t=2}^T \hat u_t^2}$$
 
 $$DW_{computed} = 1.59$$
 
-> For a more detailed look please look at the [excel file](./MLModel.xlsx)
+> For a more detailed look please look at the [excel file](./Excel/MLModel.xlsx)
 
 3. Get the DW critical values from [here](https://www.statisticshowto.com/durbin-watson-test-coefficient/)
 
@@ -374,6 +417,22 @@ In our case:
 
 ## Homoscedasticity
 
+### Causes
+
+-   improper selection of the regression model
+-   presence of outliers
+-   incorrect data transformation
+
+### Consequences
+
+-   OLS estimators and regression predictions based on them are still unbiased and consistent
+-   OLS is not efficient anymore, but still a linear unbiased estimator
+-   t-test and f-test are no longer valid
+
+> OLS means Ordinary Least Squares
+
+### Testing
+
 1. Formulate the hypothesis
 
 $$
@@ -383,7 +442,7 @@ $$
 \end{cases}
 $$
 
-### Glesjer test
+#### Glesjer test
 
 2. Make the regression model with the residuals (as absolute value) as the dependent variable and all the variables as the independent variables
 
@@ -395,7 +454,7 @@ $$|U_i| = \alpha_0 + \alpha_1 \times \text{NoSellers} + \alpha_2 \times \text{Co
 
 3. If the coefficients are statistically significant we have heteroscedasticity (reject H0), if not, we have homoscedasticity
 
-From the [excel file](./MLModel.xlsx):
+From the [excel file](./Excel/MLModel.xlsx):
 
 |                |     | P-value |
 | -------------- | --- | ------- |
@@ -405,7 +464,7 @@ From the [excel file](./MLModel.xlsx):
 
 > Because the coeffiecients, in our case, are not statistically significant, we conclude that we accept $H_0$ and the error term is homoscedastic.
 
-### White test
+#### White test
 
 2. Make the regression model with the residuals (squared) as the dependent variable and all the variables as the independent variables and their squared values
 
@@ -417,7 +476,7 @@ $$U_i^2 = \alpha_0 + \alpha_1 \times \text{NoSellers} + \alpha_1^2 \times \text{
 
 3. We compute the model, take $R^2$ and compute the white test
 
-From the [excel file](./MLModel.xlsx):
+From the [excel file](./Excel/MLModel.xlsx):
 
 $$R^2 = 0.594869$$
 
@@ -437,6 +496,8 @@ $$5.95 < 9.488 \Leftrightarrow LM < \chi^2 \Rightarrow \text{accept } H_0$$
 
 ## Normality
 
+### Testing
+
 1. Formulate the hypothesis
 
 $$
@@ -446,7 +507,7 @@ $$
 \end{cases}
 $$
 
-2. Given skewness and kurtosis (if not, check the [excel file](./MLModel.xlsx) for steps on how to calculate) calculate the $JB$ coefficient
+2. Given skewness and kurtosis (if not, check the [excel file](./Excel/MLModel.xlsx) for steps on how to calculate) calculate the $JB$ coefficient
 
 $$JB = \dfrac{n}{6} \left[\text{Skewness}^2+\dfrac{(\text{Kurtosis} - 3)^2}{4}\right] = 1.43$$
 
