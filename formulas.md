@@ -1,5 +1,3 @@
-# Most important formulas
-
 # The model
 
 $$y_i = \beta_0 + \beta_1 \cdot x_i + u_i$$
@@ -52,11 +50,14 @@ $$R ^2 = \dfrac{SS_{Explained}}{SS_{Total}}$$
 
 $$\text{Adj. } R^2 = 1-(1-R^2)\cdot \dfrac{n-1}{n-k-1}$$
 
-# Hypothesis Testing (for ANOVA)
+# F-testing
 
-$$H_0: \beta_1 = \beta_2 = ... = \beta_k = 0$$
-
-$$H_1: \text{at least one }\beta_k \not = 0$$
+$$
+\begin{cases}
+    H_0: \beta_1 = \beta_2 = ... = \beta_k = 0 \\
+    H_1: \text{at least one }\beta_k \not = 0
+\end{cases}
+$$
 
 $$F_{critical} = F_{\alpha;\ k;\ n-k-1}$$
 
@@ -65,6 +66,8 @@ $$F_{calc} > F_{critical} \Leftrightarrow \text{reject } H_0 \text{, else reject
 # Matrix calculation
 
 $$\beta = (X ^ T X) ^ {-1} \cdot X ^ T y$$
+
+$$SE(\beta_i) = \sqrt{MS_{Residual} \cdot X^TX^{-1}}$$
 
 # Theories
 
@@ -81,7 +84,7 @@ $$
 \end{cases}
 $$
 
-$$DW = \dfrac{\sum\limits_{t=2}^T [(\hat u_i - \hat u_{t-1})^2]}{\sum_{t=2}^T \hat u_i^2}$$
+$$DW = \dfrac{\sum\limits_{t=2}^T [(\hat u_i - \hat u_{t-1})^2]}{\sum\limits_{t=2}^T (\hat u_i^2)}$$
 
 |     | Significant positive autocorrelation |       | No decision |       | No significant autocorrelation |         | No decision |         | Significant negative autocorrelation |     |
 | --- | ------------------------------------ | ----- | ----------- | ----- | ------------------------------ | ------- | ----------- | ------- | ------------------------------------ | --- |
