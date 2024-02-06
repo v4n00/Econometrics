@@ -30,6 +30,13 @@ $$\beta_i \in (\hat \beta_i - SE(\beta_i) \cdot t_{critical}; \hat \beta_i + SE(
 
 # T-testing
 
+$$
+\begin{cases}
+    H_0: \beta_i = \beta^* \\
+    H_1: \beta_i \not = \beta^*
+\end{cases} \text{, where } \beta^* = 0 \text{ for testing significance}
+$$
+
 $$t_{calc} (\beta_i) = \dfrac{\hat \beta_i}{SE(\hat \beta_i)}$$
 
 $$t_{calc} > t_{critical} \Leftrightarrow \text{reject } H_0 \text{, else reject } H_1$$
@@ -65,9 +72,11 @@ $$F_{calc} > F_{critical} \Leftrightarrow \text{reject } H_0 \text{, else reject
 
 # Matrix calculation
 
-$$\beta = (X ^ T X) ^ {-1} \cdot X ^ T y$$
+$$\beta = (X ^ T X) ^ {-1} \cdot X ^ T Y$$
 
-$$SE(\beta_i) = \sqrt{MS_{Residual} \cdot X^TX^{-1}}$$
+$$var-cov(X) = MS_{Residual} \cdot X^TX^{-1}$$
+
+$$SE(\beta_i) = \sqrt{var-cov(x)_{ii}}$$
 
 # Theories
 
@@ -84,7 +93,7 @@ $$
 \end{cases}
 $$
 
-$$DW = \dfrac{\sum\limits_{t=2}^T [(\hat u_i - \hat u_{t-1})^2]}{\sum\limits_{t=2}^T (\hat u_i^2)}$$
+$$DW = \dfrac{\sum\limits_{t=2}^T [(\hat u_i - \hat u_{i-1})^2]}{\sum\limits_{t=2}^T (\hat u_i^2)}$$
 
 |     | Significant positive autocorrelation |       | No decision |       | No significant autocorrelation |         | No decision |         | Significant negative autocorrelation |     |
 | --- | ------------------------------------ | ----- | ----------- | ----- | ------------------------------ | ------- | ----------- | ------- | ------------------------------------ | --- |
@@ -99,11 +108,11 @@ $$
 \end{cases}
 $$
 
-### Glesjer test
+$$\text{Glesjer test}$$
 
 $$|U_i| = \alpha_0 + \alpha_1 x_1 + \alpha_2 x_2 + ... + \alpha_k x_k$$
 
-### White test
+$$\text{White test}$$
 
 $$U_i^2 = \alpha_0 + \alpha_1 x_1 + \alpha_1^2 x_1^2 + \alpha_2 x_2 + \alpha_2^2 x_2^2 + ... + \alpha_k x_k + \alpha_k^2 x_k^2$$
 
