@@ -22,6 +22,8 @@ $$SE(\beta_0) = \sigma_u \cdot \sqrt{\dfrac{1}{n}+\dfrac{\bar x ^ 2}{\sum [(x_i 
 
 $$SE(\beta_1) = \dfrac{\sigma_u}{ \sqrt{\sum [(x_i - \bar x) ^2]}}$$
 
+$$SE(\beta_i) = \sqrt{Var(\beta_i)}$$
+
 # Confidence intervals
 
 $$t_{critical} = t_{\alpha / 2;n-k-1}$$
@@ -43,17 +45,15 @@ $$t_{calc} > t_{critical} \Leftrightarrow \text{reject } H_0 \text{, else reject
 
 # ANOVA
 
-| Variance due to        | df        | Sum of Squares                                  | Mean of suqares                                | F                                           |
-| ---------------------- | --------- | ----------------------------------------------- | ---------------------------------------------- | ------------------------------------------- |
-| Regression (Explained) | $k$       | $SS_{Explained} = \sum [(\hat y_i - \bar y)^2]$ | $MS_{Explaiend} = \dfrac{SS_{Explained}}{k}$   | $F = \dfrac{MS_{Explained}}{MS_{Residual}}$ |
-| Residuals              | $n-k - 1$ | $SS_{Residual} = \sum [(y_i - \hat y_i)^2]$     | $MS_{Residual} = \dfrac{SS_{Residual}}{n-k-1}$ |                                             |
-| Total                  | $n-1$     | $SS_{Total} = \sum [(y_i - \bar y) ^2]$         | $MS_{Total} = \dfrac{SS_{Total}}{n-1}$         |                                             |
+| Variance due to        | df        | Sum of Squares                                   | Mean of suqares                                | F                                            |
+| ---------------------- | --------- | ------------------------------------------------ | ---------------------------------------------- | -------------------------------------------- |
+| Regression (Explained) | $k$       | $SS_{Regression} = \sum [(\hat y_i - \bar y)^2]$ | $MS_{Regression} = \dfrac{SS_{Regression}}{k}$ | $F = \dfrac{MS_{Regression}}{MS_{Residual}}$ |
+| Residual               | $n-k - 1$ | $SS_{Residual} = \sum [(y_i - \hat y_i)^2]$      | $MS_{Residual} = \dfrac{SS_{Residual}}{n-k-1}$ |                                              |
+| Total                  | $n-1$     | $SS_{Total} = \sum [(y_i - \bar y) ^2]$          |                                                |                                              |
 
-$$SS_{Total} = SS_{Explained} + SS_{Regression}$$
+$$SS_{Total} = SS_{Regression} + SS_{Residual}$$
 
-$$MS_{Total} \not= MS_{Explained} + MS_{Regression}$$
-
-$$R ^2 = \dfrac{SS_{Explained}}{SS_{Total}}$$
+$$R ^2 = \dfrac{SS_{Regression}}{SS_{Total}}$$
 
 $$\text{Adj. } R^2 = 1-(1-R^2)\cdot \dfrac{n-1}{n-k-1}$$
 
@@ -74,9 +74,9 @@ $$F_{calc} > F_{critical} \Leftrightarrow \text{reject } H_0 \text{, else reject
 
 $$\beta = (X ^ T X) ^ {-1} \cdot X ^ T Y$$
 
-$$var-cov(X) = MS_{Residual} \cdot X^TX^{-1}$$
+$$VarCov(X) = MS_{Residual} \cdot X^TX^{-1}$$
 
-$$SE(\beta_i) = \sqrt{var-cov(x)_{ii}}$$
+$$SE(\beta_i) = \sqrt{VarCov(x)_{ii}}$$
 
 # Theories
 
