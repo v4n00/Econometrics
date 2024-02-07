@@ -93,7 +93,7 @@ $$
 \end{cases}
 $$
 
-$$DW = \dfrac{\sum\limits_{t=2}^T [(\hat u_i - \hat u_{i-1})^2]}{\sum\limits_{t=2}^T (\hat u_i^2)}$$
+$$DW = \dfrac{\sum\limits_{t=2}^T [(\hat u_i - \hat u_{i-1})^2]}{\sum\limits_{t=1}^T (\hat u_i^2)}$$
 
 |     | Significant positive autocorrelation |       | No decision |       | No significant autocorrelation |         | No decision |         | Significant negative autocorrelation |     |
 | --- | ------------------------------------ | ----- | ----------- | ----- | ------------------------------ | ------- | ----------- | ------- | ------------------------------------ | --- |

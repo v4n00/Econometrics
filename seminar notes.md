@@ -387,7 +387,7 @@ $$
 
 2. Calculate the Durbin Watson test
 
-$$DW = \dfrac{\sum\limits_{t=2}^T [(\hat u_t - \hat u_{t-1})^2]}{\sum_{t=2}^T \hat u_t^2}$$
+$$DW = \dfrac{\sum\limits_{t=2}^T [(\hat u_t - \hat u_{t-1})^2]}{\sum\limits_{t=1}^T \hat u_t^2}$$
 
 $$DW_{computed} = 1.59$$
 
